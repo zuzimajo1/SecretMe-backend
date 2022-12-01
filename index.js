@@ -32,13 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(
-  cors({
-    origin: "https://secretmeph.herokuapp.com/",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
+app.use(cors());
 
 
 //connect to mongodb
@@ -54,22 +48,9 @@ app.use("/api/user", UserRouter);
 app.use("/auth", AuthRoute);
 app.use("/api/message", MessageRouter);
 
-
-//---------------Deployment--------------
-
-
-if(process.env.NODE_ENV === 'production'){
-
-  app.use(express.static('client/build'));
-
   app.get('/*', (req, res)=>{
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.send("This is backend for secret me")
   });
-}
-
-
-
-
 
 
 //creating port on 5000
