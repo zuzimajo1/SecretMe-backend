@@ -2,7 +2,7 @@ const router = require("express").Router(); //requiring router
 const passport = require("passport"); //requiring passport
 
 const CLIENT_URL = "https://secretmeph.herokuapp.com/";
-const CLIENT_URL_LOGIN = "https://secretmeph.herokuapp.com/login";
+const CLIENT_URL_LOGIN = "https://secretme.netlify.app/login";
 
 //if authentication in Google succeded
 router.get("/login/success", (req, res) => {
